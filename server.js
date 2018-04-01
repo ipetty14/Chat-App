@@ -16,12 +16,15 @@ var server = require('http').createServer(app);
 // Used for user input of host and port
 var io = require('socket.io').listen(server);
 var handler = require('./handler');
-// var yargs = require('yargs');
+var yargs = require('yargs');
 
-// const argv = yargs.argv;
+const argv = yargs.argv;
 
-var host = '10.0.1.8' // argv.host;
-var port = 1337 // argv.port;
+// Gets host and port straight from command line
+// through keyword recognition
+// e.g. 'node server --host=10.0.1.1 --port=4567'
+var host = argv.host;
+var port = argv.port;
 
 // Set up the express static server directory in the public
 // folder in this directory
